@@ -1,0 +1,9 @@
+
+.vscode/launch.json
+.vscode/tasks.json
+bin/Debug/net6.0-windows/WorkParser2.exe
+UpgradeLog.htm
+.vs/WorkParser2/DesignTimeBuild/.dtbcache.v2
+.vs/WorkParser2/v15/.suo
+.vs/WorkParser2/v17/.futdcache.v1
+.vs/WorkParser2/v17/.suo
