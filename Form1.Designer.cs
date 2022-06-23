@@ -39,6 +39,8 @@ partial class Form1
             this.RenCheck = new System.Windows.Forms.CheckBox();
             this.RecCheck = new System.Windows.Forms.CheckBox();
             this.AkpCheck = new System.Windows.Forms.CheckBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // imageList1
@@ -92,6 +94,7 @@ partial class Form1
             this.SntCheck.Name = "SntCheck";
             this.SntCheck.Size = new System.Drawing.Size(47, 19);
             this.SntCheck.TabIndex = 3;
+            this.SntCheck.Tag = "1";
             this.SntCheck.Text = "SNT";
             this.SntCheck.UseVisualStyleBackColor = true;
             // 
@@ -105,6 +108,7 @@ partial class Form1
             this.UdtCheck.Name = "UdtCheck";
             this.UdtCheck.Size = new System.Drawing.Size(47, 19);
             this.UdtCheck.TabIndex = 4;
+            this.UdtCheck.Tag = "2";
             this.UdtCheck.Text = "UDT";
             this.UdtCheck.UseVisualStyleBackColor = true;
             // 
@@ -118,6 +122,7 @@ partial class Form1
             this.T2kCheck.Name = "T2kCheck";
             this.T2kCheck.Size = new System.Drawing.Size(45, 19);
             this.T2kCheck.TabIndex = 5;
+            this.T2kCheck.Tag = "3";
             this.T2kCheck.Text = "T2K";
             this.T2kCheck.UseVisualStyleBackColor = true;
             // 
@@ -131,6 +136,7 @@ partial class Form1
             this.RenCheck.Name = "RenCheck";
             this.RenCheck.Size = new System.Drawing.Size(48, 19);
             this.RenCheck.TabIndex = 6;
+            this.RenCheck.Tag = "4";
             this.RenCheck.Text = "REN";
             this.RenCheck.UseVisualStyleBackColor = true;
             // 
@@ -144,6 +150,7 @@ partial class Form1
             this.RecCheck.Name = "RecCheck";
             this.RecCheck.Size = new System.Drawing.Size(47, 19);
             this.RecCheck.TabIndex = 7;
+            this.RecCheck.Tag = "5";
             this.RecCheck.Text = "REC";
             this.RecCheck.UseVisualStyleBackColor = true;
             // 
@@ -157,14 +164,29 @@ partial class Form1
             this.AkpCheck.Name = "AkpCheck";
             this.AkpCheck.Size = new System.Drawing.Size(48, 19);
             this.AkpCheck.TabIndex = 8;
+            this.AkpCheck.Tag = "6";
             this.AkpCheck.Text = "AKP";
             this.AkpCheck.UseVisualStyleBackColor = true;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(779, 244);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(134, 23);
+            this.progressBar1.TabIndex = 9;
+            // 
+            // backgroundWorker
+            // 
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 669);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.AkpCheck);
             this.Controls.Add(this.RecCheck);
             this.Controls.Add(this.RenCheck);
@@ -193,4 +215,6 @@ partial class Form1
     private CheckBox RenCheck;
     private CheckBox RecCheck;
     private CheckBox AkpCheck;
+    private ProgressBar progressBar1;
+    private System.ComponentModel.BackgroundWorker backgroundWorker;
 }
