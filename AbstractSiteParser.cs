@@ -1,29 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WorkParser2
+﻿namespace WorkParser2
 {
     internal abstract class AbstractSiteParser
     {
         public virtual Site site { get; }
-        protected virtual string request_url { get; } = "";
-        protected virtual double dicount { get; } = 1.0;
+        protected virtual string request_url { get; }
+        protected virtual double discount { get; set; }
+
+        protected AbstractSiteParser(Site s, string url, double? dc=null)
+        {
+            site = s;
+            request_url = url;
+            discount = dc ?? 1.0;
+        }
 
         abstract public ResponceModels[] Parse(string request);
 
         protected string GetHtml(string? url = null)
         {
             url = string.IsNullOrEmpty(url) ? request_url : url;
-            
+
             using (HttpClient client = new())
             {
                 return client.GetStringAsync(url).Result;
             }
         }
-        
+
         protected List<List<string>> ParseTableToList(string html, string table_class)
         {
             HtmlAgilityPack.HtmlDocument doc = new();

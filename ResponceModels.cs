@@ -37,8 +37,21 @@ namespace WorkParser2
     internal class T2KResponce : ResponceModels
     {
         public string? Balance { get; set; }
+        
         public T2KResponce(string request) : base(request)
         {
+            Balance = null;
+        }
+    }
+
+    internal class RENTAResponce : ResponceModels
+    {
+        public string? Manufacturer { get; set; }
+        public string? Balance { get; set; }
+        
+        public RENTAResponce(string request) : base(request)
+        {
+            Manufacturer = null;
             Balance = null;
         }
     }

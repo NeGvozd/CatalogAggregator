@@ -8,9 +8,9 @@ namespace WorkParser2
 {
     internal class T2KParser : AbstractSiteParser
     {
-        public override Site site { get; } = Site.T2K;
-        protected override string request_url { get; } = "https://t-2k.ru/search?q={0}";
         private string _table_class = "table-cart";
+
+        public T2KParser(Site s, string url, double? dc = null) : base(s, url, dc) { }
 
         public override ResponceModels[] Parse(string request)
         {

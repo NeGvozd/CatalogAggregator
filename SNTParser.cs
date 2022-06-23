@@ -9,14 +9,11 @@ namespace WorkParser2
 {
     internal class SNTParser : AbstractSiteParser
     {
-        public override Site site { get; } = Site.SNT;
-        protected override string request_url { get; } = "https://snt-k.ru/catalog/";
         private List<List<string>> _base;
         private string _table_class = "tablepress tablepress-id-27";
 
-        public SNTParser()
+        public SNTParser(Site s, string url, double? dc = null) : base(s, url, dc)
         {
-            site = Site.SNT;
             _base = new List<List<string>>();
             _DownloadBase();
         }
