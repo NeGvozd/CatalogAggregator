@@ -23,18 +23,14 @@ namespace WorkParser2
             var suitable = new List<List<string>>();
             suitable = _base.FindAll(x => (x[1] == request || x[0].Contains(request)) && x[4] != "ОЖИДАЕТСЯ");
 
-            var responces = new SNTResponce[suitable.Count];
-            for (int i=0; i < suitable.Count; i++)
+            var responces = suitable.Select(s => new SNTResponce(request)
             {
-                responces[i] = new SNTResponce(request)
-                {
-                    Name = suitable[i][0],
-                    Article = suitable[i][1],
-                    Manufacturer = suitable[i][2],
-                    Balance = suitable[i][3],
-                    Cost = suitable[i][4]
-                };
-            }
+                Name = s[0],
+                Article = s[1],
+                Manufacturer = s[2],
+                Balance = s[3],
+                Cost = s[4],
+            }).ToArray();
 
             return responces;
         }

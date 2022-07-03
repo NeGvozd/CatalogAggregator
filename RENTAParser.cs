@@ -16,20 +16,15 @@ namespace WorkParser2
         {
             var suitable = ParseTableToList(GetHtml(string.Format(request_url, request)), _table_class);
             suitable.RemoveAll(x => x[5].Contains("заказ"));
-            var responces = new RENTAResponce[suitable.Count];
 
-            for (int i=0; i < suitable.Count; i++)
+            var responces = suitable.Select(s => new RENTAResponce(request)
             {
-                if (suitable[i][5].Contains("заказ")) continue;
-                responces[i] = new RENTAResponce(request)
-                {
-                    Article = suitable[i][1].Split(' ', 2)[0],
-                    Name = suitable[i][2],
-                    Cost = suitable[i][4].Replace("&nbsp;", "").Split('₽')[0],
-                    Manufacturer = suitable[i][0],
-                    Balance = suitable[i][5].Replace("&nbsp;", " "),
-                };
-            }
+                Name = s[2],
+                Article = s[1].Split(' ', 2)[0],
+                Cost = s[4].Replace("&nbsp;", "").Split('₽')[0],
+                Manufacturer = s[0],
+                Balance = s[5].Replace("&nbsp;", " "),
+            }).ToArray();
 
             return responces;
         }

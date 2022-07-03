@@ -20,21 +20,23 @@ namespace WorkParser2
     internal class InitialController
     {
         private SNTParser snt;
+        private UDTParser udt;
         private T2KParser t2k;
         private RENTAParser ren;
+        private RECAParser rec;
 
         public InitialController()
         {
             snt = new SNTParser(Site.SNT, "https://snt-k.ru/catalog/");
+            udt = new UDTParser(Site.UDT, "https://www.udt-technika.ru/search/");
             t2k = new T2KParser(Site.T2K, "https://t-2k.ru/search?q={0}");
             ren = new RENTAParser(Site.REN, "https://rentakom-parts.ru/search/?q={0}");
+            rec = new RECAParser(Site.REC, "https://recamgr.ru/products/?search={0}");
         }
 
         public void Start(List<Site> search_sites, List<string> searching_requests)
         {
-            //var res = snt.Parse(searching_requests[0]);
-            //var res = t2k.Parse(searching_requests[0]);
-            var res = ren.Parse(searching_requests[0]);
+            var res = rec.Parse(searching_requests[0]);
         }
     }
 }

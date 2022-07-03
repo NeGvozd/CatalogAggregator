@@ -40,5 +40,20 @@
 
             return table;
         }
+
+        protected string PostRequest(string request)
+        {
+            using (HttpClient client = new())
+            {
+                var content = new FormUrlEncodedContent(new Dictionary<string, string>()
+                {
+                    { "parts", request },
+                });
+
+                var response = client.PostAsync(request_url, content).Result;                
+                var res = response.Content.ReadAsStringAsync().Result;
+                return res;
+            }
+        }
     }
 }

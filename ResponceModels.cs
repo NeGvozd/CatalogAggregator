@@ -55,4 +55,23 @@ namespace WorkParser2
             Balance = null;
         }
     }
+
+    internal class UDTResponce : ResponceModels
+    {
+        public string? Manufacturer { get; set; }
+        public string? Balance { get; set; }
+        public string? DeliveryTime { get; set; }
+
+        public UDTResponce(string request) : base(request)
+        {
+            Manufacturer = null;
+            Balance = null;
+            DeliveryTime = null;
+        }
+    }
+
+    internal class RECAResponce : ResponceModels
+    {
+        public RECAResponce(string request) : base(request) { }
+    }
 }
