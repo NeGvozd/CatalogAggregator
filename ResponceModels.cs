@@ -74,4 +74,14 @@ namespace WorkParser2
     {
         public RECAResponce(string request) : base(request) { }
     }
+
+    internal class AKPResponce : ResponceModels
+    {
+        public string? Balance { get; set; }
+        
+        public AKPResponce(string request) : base(request)
+        {
+            Balance = null;
+        }
+    }
 }
