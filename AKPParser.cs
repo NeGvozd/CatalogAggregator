@@ -12,7 +12,7 @@ namespace WorkParser2
 
         public AKPParser(Site s, string url, double? dc = null) : base(s, url, dc) { }
 
-        public override ResponceModels[] Parse(string request)
+        public override async Task<ResponceModels[]?> ParseAsync(string request)
         {
             var node = string.Format("//div[contains(@class, '{0}')]", div_class);
 
@@ -21,20 +21,27 @@ namespace WorkParser2
                     articleNode = ".//*[@class='article_block']/div",
                     costNode = ".//span[@class='price_value']";
 
-            var html = GetHtml(string.Format(request_url, request));
+            var html = await GetHtmlAsync(string.Format(request_url, request));
             HtmlAgilityPack.HtmlDocument doc = new();
             doc.LoadHtml(html);
 
-            var nodes = doc.DocumentNode.SelectNodes(node)
+            try
+            {
+                var nodes = doc.DocumentNode.SelectNodes(node)
                 .Select(div => new AKPResponce(request)
-                {                    
+                {
                     Name = div.SelectSingleNode(nameNode).InnerText,
                     Balance = div.SelectSingleNode(balanceNode).InnerText,
                     Article = div.SelectSingleNode(articleNode).InnerText.Split()[1],
                     Cost = div.SelectSingleNode(costNode).InnerText.Replace("&nbsp;", ""),
                 }).ToArray();
 
-            return nodes;
+                return nodes;
+            }
+            catch (ArgumentNullException ex)
+            {
+                return null;
+            }            
         }
     }
 }

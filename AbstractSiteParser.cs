@@ -13,35 +13,20 @@
             discount = dc ?? 1.0;
         }
 
-        abstract public ResponceModels[] Parse(string request);
+        abstract public Task<ResponceModels[]?> ParseAsync(string request);
 
-        protected string GetHtml(string? url = null)
+        protected async Task<string> GetHtmlAsync(string? url = null)
         {
             url = string.IsNullOrEmpty(url) ? request_url : url;
 
             using (HttpClient client = new())
             {
-                return client.GetStringAsync(url).Result;
+                var res = await client.GetStringAsync(url);
+                return res;
             }
         }
 
-        protected List<List<string>> ParseTableToList(string html, string table_class)
-        {
-            HtmlAgilityPack.HtmlDocument doc = new();
-            doc.LoadHtml(html);
-
-            var node = string.Format("//table[@class='{0}']", table_class);
-
-            var table = doc.DocumentNode.SelectSingleNode(node)
-                .Descendants("tr").Skip(1)
-                .Where(tr => tr.Elements("td").Count() > 1)
-                .Select(tr => tr.Elements("td").Select(td => td.InnerText.Trim()).ToList())
-                .ToList();
-
-            return table;
-        }
-
-        protected string PostRequest(string request)
+        protected async Task<string> PostRequestAsync(string request)
         {
             using (HttpClient client = new())
             {
@@ -50,10 +35,34 @@
                     { "parts", request },
                 });
 
-                var response = client.PostAsync(request_url, content).Result;                
-                var res = response.Content.ReadAsStringAsync().Result;
+                var response = await client.PostAsync(request_url, content);                
+                var res = await response.Content.ReadAsStringAsync();
                 return res;
             }
+        }
+
+        protected List<List<string>>? ParseTableToList(string html, string table_class)
+        {
+            HtmlAgilityPack.HtmlDocument doc = new();
+            doc.LoadHtml(html);
+
+            var node = string.Format("//table[@class='{0}']", table_class);
+
+            try
+            {
+                var table = doc.DocumentNode.SelectSingleNode(node)
+                .Descendants("tr").Skip(1)
+                .Where(tr => tr.Elements("td").Count() > 1)
+                .Select(tr => tr.Elements("td").Select(td => td.InnerText.Trim()).ToList())
+                .ToList();
+
+                return table;
+            }
+            catch (Exception)
+            {
+                //throw;
+                return null;
+            }           
         }
     }
 }

@@ -18,7 +18,7 @@ namespace WorkParser2
             _DownloadBase();
         }
 
-        public override ResponceModels[] Parse(string request)
+        public override async Task<ResponceModels[]?> ParseAsync(string request)
         {
             var suitable = new List<List<string>>();
             suitable = _base.FindAll(x => (x[1] == request || x[0].Contains(request)) && x[4] != "ОЖИДАЕТСЯ");
@@ -35,10 +35,10 @@ namespace WorkParser2
             return responces;
         }
 
-        private void _DownloadBase()
+        private async void _DownloadBase()
         {
-            _base = ParseTableToList(GetHtml(), _table_class);
-
+            _base = ParseTableToList(await GetHtmlAsync(), _table_class);
+            
             for (int i = 0; i < _base.Count; i++)
             {
                 _base[i].RemoveAll(x => x == null || x == "");

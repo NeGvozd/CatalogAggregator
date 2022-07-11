@@ -19,26 +19,26 @@ namespace WorkParser2
 
     internal class InitialController
     {
-        //private SNTParser snt;
-        private UDTParser udt;
-        private T2KParser t2k;
-        private RENTAParser ren;
-        private RECAParser rec;
-        private AKPParser akp;
+        private ParseController parseController;
+        private Form1 form1;
 
-        public InitialController()
+        public InitialController(Form1 form)
         {
-            //snt = new SNTParser(Site.SNT, "https://snt-k.ru/catalog/");
-            udt = new UDTParser(Site.UDT, "https://www.udt-technika.ru/search/");
-            t2k = new T2KParser(Site.T2K, "https://t-2k.ru/search?q={0}");
-            ren = new RENTAParser(Site.REN, "https://rentakom-parts.ru/search/?q={0}");
-            rec = new RECAParser(Site.REC, "https://recamgr.ru/products/?search={0}");
-            akp = new AKPParser(Site.AKP, "https://akpart.ru/catalog/?q={0}");
+            parseController = new();
+            form1 = form;
         }
 
         public void Start(List<Site> search_sites, List<string> searching_requests)
         {
-            var res = akp.Parse(searching_requests[0]);
+            foreach (var request in searching_requests)
+            {
+                var res = parseController.Parse(search_sites, request);
+                foreach(var r in res)
+                {
+                    //form1.textBox1.AppendText(r.Name+"\r\n");
+                    form1.textBox1.Invoke(new Action(() => form1.textBox1.AppendText(r.Name + "\r\n")));
+                }
+            }
         }
     }
 }

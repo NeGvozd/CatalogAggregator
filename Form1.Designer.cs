@@ -206,7 +206,6 @@ partial class Form1
     #endregion
 
     private ImageList imageList1;
-    private TextBox textBox1;
     private Button StartButton;
     private Button ClearButton;
     private CheckBox SntCheck;
@@ -217,4 +216,5 @@ partial class Form1
     private CheckBox AkpCheck;
     private ProgressBar progressBar1;
     private System.ComponentModel.BackgroundWorker backgroundWorker;
+    public TextBox textBox1;
 }
