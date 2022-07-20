@@ -18,12 +18,12 @@ namespace WorkParser2
             _DownloadBase();
         }
 
-        public override async Task<ResponceModels[]?> ParseAsync(string request)
+        public override async Task<ResponceModel[]?> ParseAsync(string request)
         {
             var suitable = new List<List<string>>();
             suitable = _base.FindAll(x => (x[1] == request || x[0].Contains(request)) && x[4] != "ОЖИДАЕТСЯ");
 
-            var responces = suitable.Select(s => new SNTResponce(request)
+            var responces = suitable.Select(s => new ResponceModel(request)
             {
                 Name = s[0],
                 Article = s[1],

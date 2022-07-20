@@ -12,13 +12,13 @@ namespace WorkParser2
 
         public T2KParser(Site s, string url, double? dc = null) : base(s, url, dc) { }
 
-        public override async Task<ResponceModels[]?> ParseAsync(string request)
+        public override async Task<ResponceModel[]?> ParseAsync(string request)
         {
             var suitable = ParseTableToList(await GetHtmlAsync(string.Format(request_url, request)), _table_class);
             
             if (suitable == null) return null;
             
-            var responces = suitable.Select(s => new T2KResponce(request)
+            var responces = suitable.Select(s => new ResponceModel(request)
             {
                 Article = s[0].Split(' ', 2)[0],
                 Name = s[0].Split(' ', 2)[1],

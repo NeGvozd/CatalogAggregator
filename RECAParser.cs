@@ -12,12 +12,13 @@ namespace WorkParser2
         
         public RECAParser(Site s, string url, double? dc = null) : base(s, url, dc) { }
 
-        public override async Task<ResponceModels[]?> ParseAsync(string request)
+        public override async Task<ResponceModel[]?> ParseAsync(string request)
         {
             var node = string.Format("//div[@class='{0}']", div_class);
-            
-            string  oldPriceNode = "span/span[@class='old_price']",
+
+            string oldPriceNode = "span/span[@class='old_price']",
                     newPriceNode = "span/span[@class='new_price']",
+                    priceNode = "span/span[contains(@class, 'price__value')]",
                     articleNode = "span[@class='goods__articul ellipsis']",
                     searchLegendNode = "//div[@class='text search-legend']"; // amout of the founded results
 
@@ -32,13 +33,14 @@ namespace WorkParser2
                     throw new ArgumentNullException();
                 
                 var nodes = doc.DocumentNode.SelectNodes(node)
-                .Select(div => new RECAResponce(request)
+                .Select(div => new ResponceModel(request)
                 {
-                    Cost = string.Format(
-                        "{0}-{1}",
-                        div.SelectSingleNode(newPriceNode).InnerText,
-                        div.SelectSingleNode(oldPriceNode).InnerText
-                    ),
+                    //Cost = string.Format(
+                    //    "{0}-{1}",
+                    //    div.SelectSingleNode(newPriceNode).InnerText,
+                    //    div.SelectSingleNode(oldPriceNode).InnerText
+                    //),
+                    Cost = div.SelectSingleNode(priceNode).InnerText,
                     Name = div.SelectSingleNode("a").InnerText,
                     Article = div.SelectSingleNode(articleNode) != null ?
                         div.SelectSingleNode(articleNode).InnerText

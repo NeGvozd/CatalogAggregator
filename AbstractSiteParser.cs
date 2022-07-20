@@ -13,7 +13,7 @@
             discount = dc ?? 1.0;
         }
 
-        abstract public Task<ResponceModels[]?> ParseAsync(string request);
+        abstract public Task<ResponceModel[]?> ParseAsync(string request);
 
         protected async Task<string> GetHtmlAsync(string? url = null)
         {

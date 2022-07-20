@@ -12,7 +12,7 @@ namespace WorkParser2
 
         public RENTAParser(Site s, string url, double? dc = null) : base(s, url, dc) { }
 
-        public override async Task<ResponceModels[]?> ParseAsync(string request)
+        public override async Task<ResponceModel[]?> ParseAsync(string request)
         {
             var suitable = ParseTableToList(
                 await GetHtmlAsync(string.Format(request_url, request)),
@@ -23,7 +23,7 @@ namespace WorkParser2
             
             suitable.RemoveAll(x => x[5].Contains("заказ"));
 
-            var responces = suitable.Select(s => new RENTAResponce(request)
+            var responces = suitable.Select(s => new ResponceModel(request)
             {
                 Name = s[2],
                 Article = s[1].Split(' ', 2)[0],

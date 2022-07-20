@@ -12,7 +12,7 @@ namespace WorkParser2
 
         public AKPParser(Site s, string url, double? dc = null) : base(s, url, dc) { }
 
-        public override async Task<ResponceModels[]?> ParseAsync(string request)
+        public override async Task<ResponceModel[]?> ParseAsync(string request)
         {
             var node = string.Format("//div[contains(@class, '{0}')]", div_class);
 
@@ -28,7 +28,7 @@ namespace WorkParser2
             try
             {
                 var nodes = doc.DocumentNode.SelectNodes(node)
-                .Select(div => new AKPResponce(request)
+                .Select(div => new ResponceModel(request)
                 {
                     Name = div.SelectSingleNode(nameNode).InnerText,
                     Balance = div.SelectSingleNode(balanceNode).InnerText,

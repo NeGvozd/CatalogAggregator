@@ -12,13 +12,13 @@ namespace WorkParser2
 
         public UDTParser(Site s, string url, double? dc = null) : base(s, url, dc) { }
 
-        public override async Task<ResponceModels[]?> ParseAsync(string request)
+        public override async Task<ResponceModel[]?> ParseAsync(string request)
         {
             var suitable = ParseTableToList(await PostRequestAsync(request), _table_class);
 
             if (suitable == null) return null;
             
-            var responces = suitable.Select(s => new UDTResponce(request)
+            var responces = suitable.Select(s => new ResponceModel(request)
             {
                 Name = s[0],
                 Article = s[1],
