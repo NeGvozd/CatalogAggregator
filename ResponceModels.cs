@@ -9,6 +9,7 @@ namespace WorkParser2
     internal class ResponceModel
     {
         public string? Request { get; set; }
+        public Site? Site { get; set; }
         public string? Name { get; set; }
         public string? Article { get; set; }
         public string? Cost { get; set; }
@@ -16,8 +17,9 @@ namespace WorkParser2
         public string? Balance { get; set; }
         public string? DeliveryTime { get; set; }
 
-        public ResponceModel(string request)
+        public ResponceModel(Site site, string request)
         {
+            Site = site;
             Request = request;
             Name = null;
             Article = null;

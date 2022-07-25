@@ -23,7 +23,7 @@ namespace WorkParser2
             
             suitable.RemoveAll(x => x[5].Contains("заказ"));
 
-            var responces = suitable.Select(s => new ResponceModel(request)
+            var responces = suitable.Select(s => new ResponceModel(site, request)
             {
                 Name = s[2],
                 Article = s[1].Split(' ', 2)[0],

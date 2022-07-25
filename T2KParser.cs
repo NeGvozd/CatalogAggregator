@@ -18,7 +18,7 @@ namespace WorkParser2
             
             if (suitable == null) return null;
             
-            var responces = suitable.Select(s => new ResponceModel(request)
+            var responces = suitable.Select(s => new ResponceModel(site, request)
             {
                 Article = s[0].Split(' ', 2)[0],
                 Name = s[0].Split(' ', 2)[1],

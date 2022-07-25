@@ -32,15 +32,21 @@ namespace WorkParser2
         public void Start(List<Site> search_sites, List<string> searching_requests)
         {
             BindingList<ResponceModel> totalResponce = new();
+            var percentage = form1.progressBar1.Maximum / searching_requests.Count;
+            var percantageScore = 0;
+            
             foreach (var request in searching_requests)
             {
+                percantageScore += percentage;
                 var res = parseController.Parse(search_sites, request);
+                //insert a ResponceModel with only requested articul
+                
                 res.ForEach(x => totalResponce.Add(x));
-                foreach(var r in res)
-                {
-                    //form1.textBox1.AppendText(r.Name+"\r\n");
-                    form1.textBox1.Invoke(new Action(() => form1.textBox1.AppendText(r.Name + "\r\n")));
-                }
+                form1.backgroundWorker.ReportProgress(percantageScore);
+                //foreach(var r in res)
+                //{
+                //    form1.textBox1.Invoke(new Action(() => form1.textBox1.AppendText(r.Name + "\r\n")));
+                //}
             }
             form1.dataGridView1.Invoke(new Action(() => { form1.dataGridView1.DataSource = totalResponce; }));
         }

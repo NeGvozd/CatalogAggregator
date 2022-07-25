@@ -12,6 +12,7 @@ public partial class Form1 : Form
 
     private void StartButton_Click(object sender, EventArgs e)
     {
+        StartButton.Enabled = false;
         //StartButton_Action
         backgroundWorker.RunWorkerAsync();
     }
@@ -26,7 +27,7 @@ public partial class Form1 : Form
         var requested_sites = new List<Site>();
         var requests = textBox1.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
         var check_boxes = this.AllControls<CheckBox>().Where(control => control.Checked).ToList();
-
+        
         check_boxes.Reverse();
         foreach (var c in check_boxes)
         {
@@ -34,6 +35,68 @@ public partial class Form1 : Form
         }
 
         controller.Start(requested_sites, requests);
+    }
+
+    private void backgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+    {
+        progressBar1.Value = e.ProgressPercentage;
+    }
+
+    private void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+    {
+        StartButton.Enabled = true;
+        progressBar1.Value = progressBar1.Maximum;
+    }
+    private bool IsTheSameCellValue(int col, int row)
+    {
+        DataGridViewCell cell1 = dataGridView1.Rows[row].Cells[col];
+        DataGridViewCell cell2 = dataGridView1.Rows[row - 1].Cells[col];
+
+        if (cell1.Value == null || cell2.Value == null || col > 1)
+            return false;
+
+        return cell1.Value.ToString() == cell2.Value.ToString();
+    }
+
+    private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+    {
+        if (e.RowIndex == 0 || e.ColumnIndex > 1)
+            return;
+        if (IsTheSameCellValue(e.ColumnIndex, e.RowIndex))
+        {
+            e.Value = "";
+            e.FormattingApplied = true;
+        }
+    }
+
+    private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+    {
+        e.AdvancedBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None;
+        if (e.RowIndex < 1 || e.ColumnIndex < 0)
+            return;
+        if (IsTheSameCellValue(e.ColumnIndex, e.RowIndex))
+        {
+            e.AdvancedBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None;
+        }
+        else
+        {
+            e.AdvancedBorderStyle.Top = dataGridView1.AdvancedCellBorderStyle.Top;
+        }
+    }
+
+    private void Form1_Load(object sender, EventArgs e)
+    {
+        //dataGridView1.AutoGenerateColumns = false;
+    }
+
+    private void textBox1_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void progressBar1_Click(object sender, EventArgs e)
+    {
+
     }
 }
 

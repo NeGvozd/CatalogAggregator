@@ -23,7 +23,7 @@ namespace WorkParser2
             var suitable = new List<List<string>>();
             suitable = _base.FindAll(x => (x[1] == request || x[0].Contains(request)) && x[4] != "ОЖИДАЕТСЯ");
 
-            var responces = suitable.Select(s => new ResponceModel(request)
+            var responces = suitable.Select(s => new ResponceModel(site, request)
             {
                 Name = s[0],
                 Article = s[1],

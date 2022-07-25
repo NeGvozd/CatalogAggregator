@@ -33,7 +33,7 @@ namespace WorkParser2
                     throw new ArgumentNullException();
                 
                 var nodes = doc.DocumentNode.SelectNodes(node)
-                .Select(div => new ResponceModel(request)
+                .Select(div => new ResponceModel(site, request)
                 {
                     //Cost = string.Format(
                     //    "{0}-{1}",

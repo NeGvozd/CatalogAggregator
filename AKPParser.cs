@@ -28,7 +28,7 @@ namespace WorkParser2
             try
             {
                 var nodes = doc.DocumentNode.SelectNodes(node)
-                .Select(div => new ResponceModel(request)
+                .Select(div => new ResponceModel(site, request)
                 {
                     Name = div.SelectSingleNode(nameNode).InnerText,
                     Balance = div.SelectSingleNode(balanceNode).InnerText,
