@@ -9,4 +9,4 @@ UpgradeLog.htm
 .vs/WorkParser2/v17/.suo
 *.vsidx
 *.vsidx
-.bin/Release/
+bin/Release/
