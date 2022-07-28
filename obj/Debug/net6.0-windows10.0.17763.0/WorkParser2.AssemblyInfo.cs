@@ -21,6 +21,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyProductAttribute("Каталожный агрегатор")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WorkParser2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2.0.0.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/NeGvozd/CatalogAggregator")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows10.0.17763.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows10.0.17763.0")]
 

@@ -322,6 +322,7 @@ partial class Form1
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Каталожный Агрегатор";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
