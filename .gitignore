@@ -10,3 +10,6 @@ UpgradeLog.htm
 *.vsidx
 *.vsidx
 bin/Release/
+obj/Release/
+obj/Debug/
+obj/publish/
