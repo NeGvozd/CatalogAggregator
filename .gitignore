@@ -13,3 +13,4 @@ bin/Release/
 obj/Release/
 obj/Debug/
 obj/publish/
+*.v2
