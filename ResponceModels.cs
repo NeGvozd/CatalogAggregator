@@ -30,11 +30,21 @@ namespace WorkParser2
         }
     }
 
+    internal class HeaderResponce : ResponceModel
+    {
+        public HeaderResponce(Site site, string request) : base(site, request)
+        {
+            Site = null;
+            Name = null;
+            Request = null;
+        }
+    }
+
     //internal class SNTResponce : ResponceModels
     //{
     //    public string? Manufacturer { get; set; }
     //    public string? Balance { get; set; }
-        
+
     //    public SNTResponce(string request) : base(request)
     //    {
     //        Manufacturer = null;
@@ -45,7 +55,7 @@ namespace WorkParser2
     //internal class T2KResponce : ResponceModels
     //{
     //    public string? Balance { get; set; }
-        
+
     //    public T2KResponce(string request) : base(request)
     //    {
     //        Balance = null;
@@ -56,7 +66,7 @@ namespace WorkParser2
     //{
     //    public string? Manufacturer { get; set; }
     //    public string? Balance { get; set; }
-        
+
     //    public RENTAResponce(string request) : base(request)
     //    {
     //        Manufacturer = null;
@@ -86,7 +96,7 @@ namespace WorkParser2
     //internal class AKPResponce : ResponceModels
     //{
     //    public string? Balance { get; set; }
-        
+
     //    public AKPResponce(string request) : base(request)
     //    {
     //        Balance = null;

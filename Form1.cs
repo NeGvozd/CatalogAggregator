@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace WorkParser2;
 
 public partial class Form1 : Form
@@ -10,9 +12,18 @@ public partial class Form1 : Form
         controller = new InitialController(this);
     }
 
+    static string RemoveBadChars(string text)
+    {
+        Regex reg = new(@"[^\d]");
+        return reg.Replace(text, string.Empty);
+    }
+
     private void StartButton_Click(object sender, EventArgs e)
     {
         StartButton.Enabled = false;
+        BreakButton.Enabled = true;
+        ClearButton.Enabled = false;
+        progressBar1.Value = progressBar1.Minimum;
         //StartButton_Action
         backgroundWorker.RunWorkerAsync();
     }
@@ -20,10 +31,16 @@ public partial class Form1 : Form
     private void ClearButton_Click(object sender, EventArgs e)
     {
         textBox1.Clear();
+        progressBar1.Value = progressBar1.Minimum;
     }
 
     private void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
     {
+        if (RemoveBadChars(textBox1.Text).Length == 0)
+        {
+            backgroundWorker.CancelAsync();
+        }
+
         var requested_sites = new List<Site>();
         var requests = textBox1.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
         var check_boxes = this.AllControls<CheckBox>().Where(control => control.Checked).ToList();
@@ -34,7 +51,7 @@ public partial class Form1 : Form
             requested_sites.Add((Site)int.Parse((string)c.Tag));
         }
 
-        controller.Start(requested_sites, requests);
+        controller.Start(e, requested_sites, requests);
     }
 
     private void backgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
@@ -44,7 +61,9 @@ public partial class Form1 : Form
 
     private void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
     {
+        BreakButton.Enabled = false;
         StartButton.Enabled = true;
+        ClearButton.Enabled = true;
         progressBar1.Value = progressBar1.Maximum;
     }
     private bool IsTheSameCellValue(int col, int row)
@@ -97,6 +116,21 @@ public partial class Form1 : Form
     private void progressBar1_Click(object sender, EventArgs e)
     {
 
+    }
+
+    private void BreakButton_Click(object sender, EventArgs e)
+    {
+        backgroundWorker.CancelAsync();
+
+        BreakButton.Enabled = false;
+        StartButton.Enabled = true;
+        ClearButton.Enabled = true;
+    }
+
+    private void AboutButton_Click(object sender, EventArgs e)
+    {
+        AboutBox1 about = new AboutBox1();
+        about.Show();
     }
 }
 

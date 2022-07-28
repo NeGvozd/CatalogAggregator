@@ -28,6 +28,8 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.StartButton = new System.Windows.Forms.Button();
@@ -38,15 +40,13 @@ partial class Form1
             this.RenCheck = new System.Windows.Forms.CheckBox();
             this.RecCheck = new System.Windows.Forms.CheckBox();
             this.AkpCheck = new System.Windows.Forms.CheckBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.AboutButton = new System.Windows.Forms.ToolStripButton();
-            this.ToExcelButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.ProgressStatusLabel = new System.Windows.Forms.ToolStripLabel();
+            this.progressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BreakButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -65,33 +65,37 @@ partial class Form1
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.Location = new System.Drawing.Point(3, 163);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.PlaceholderText = "Введите здесь артикулы для поиска, по одному в строку";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(273, 517);
+            this.textBox1.Size = new System.Drawing.Size(273, 546);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // StartButton
             // 
             this.StartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.StartButton.Location = new System.Drawing.Point(139, 44);
+            this.StartButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.StartButton.Location = new System.Drawing.Point(6, 3);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(134, 24);
+            this.StartButton.Size = new System.Drawing.Size(128, 42);
             this.StartButton.TabIndex = 1;
-            this.StartButton.Text = "Start!";
+            this.StartButton.Text = "Поиск";
             this.StartButton.UseVisualStyleBackColor = true;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // ClearButton
             // 
             this.ClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearButton.Location = new System.Drawing.Point(139, 74);
+            this.ClearButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ClearButton.Location = new System.Drawing.Point(6, 51);
             this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(134, 24);
+            this.ClearButton.Size = new System.Drawing.Size(128, 42);
             this.ClearButton.TabIndex = 2;
-            this.ClearButton.Text = "Clear";
+            this.ClearButton.Text = "Очистить";
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
@@ -103,7 +107,7 @@ partial class Form1
             this.SntCheck.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SntCheck.Location = new System.Drawing.Point(3, 3);
             this.SntCheck.Name = "SntCheck";
-            this.SntCheck.Size = new System.Drawing.Size(62, 21);
+            this.SntCheck.Size = new System.Drawing.Size(61, 21);
             this.SntCheck.TabIndex = 3;
             this.SntCheck.Tag = "1";
             this.SntCheck.Text = "SNT";
@@ -115,9 +119,9 @@ partial class Form1
             this.UdtCheck.Checked = true;
             this.UdtCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.UdtCheck.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UdtCheck.Location = new System.Drawing.Point(71, 3);
+            this.UdtCheck.Location = new System.Drawing.Point(70, 3);
             this.UdtCheck.Name = "UdtCheck";
-            this.UdtCheck.Size = new System.Drawing.Size(55, 21);
+            this.UdtCheck.Size = new System.Drawing.Size(61, 21);
             this.UdtCheck.TabIndex = 4;
             this.UdtCheck.Tag = "2";
             this.UdtCheck.Text = "UDT";
@@ -129,9 +133,9 @@ partial class Form1
             this.T2kCheck.Checked = true;
             this.T2kCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.T2kCheck.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.T2kCheck.Location = new System.Drawing.Point(132, 3);
+            this.T2kCheck.Location = new System.Drawing.Point(137, 3);
             this.T2kCheck.Name = "T2kCheck";
-            this.T2kCheck.Size = new System.Drawing.Size(60, 21);
+            this.T2kCheck.Size = new System.Drawing.Size(61, 21);
             this.T2kCheck.TabIndex = 5;
             this.T2kCheck.Tag = "3";
             this.T2kCheck.Text = "T2K";
@@ -143,9 +147,9 @@ partial class Form1
             this.RenCheck.Checked = true;
             this.RenCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.RenCheck.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RenCheck.Location = new System.Drawing.Point(198, 3);
+            this.RenCheck.Location = new System.Drawing.Point(204, 3);
             this.RenCheck.Name = "RenCheck";
-            this.RenCheck.Size = new System.Drawing.Size(69, 21);
+            this.RenCheck.Size = new System.Drawing.Size(63, 21);
             this.RenCheck.TabIndex = 6;
             this.RenCheck.Tag = "4";
             this.RenCheck.Text = "REN";
@@ -159,7 +163,7 @@ partial class Form1
             this.RecCheck.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RecCheck.Location = new System.Drawing.Point(3, 30);
             this.RecCheck.Name = "RecCheck";
-            this.RecCheck.Size = new System.Drawing.Size(62, 23);
+            this.RecCheck.Size = new System.Drawing.Size(61, 23);
             this.RecCheck.TabIndex = 7;
             this.RecCheck.Tag = "5";
             this.RecCheck.Text = "REC";
@@ -171,23 +175,13 @@ partial class Form1
             this.AkpCheck.Checked = true;
             this.AkpCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.AkpCheck.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AkpCheck.Location = new System.Drawing.Point(71, 30);
+            this.AkpCheck.Location = new System.Drawing.Point(70, 30);
             this.AkpCheck.Name = "AkpCheck";
-            this.AkpCheck.Size = new System.Drawing.Size(55, 23);
+            this.AkpCheck.Size = new System.Drawing.Size(61, 23);
             this.AkpCheck.TabIndex = 8;
             this.AkpCheck.Tag = "6";
             this.AkpCheck.Text = "AKP";
             this.AkpCheck.UseVisualStyleBackColor = true;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(0, 686);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(276, 26);
-            this.progressBar1.TabIndex = 9;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // backgroundWorker
             // 
@@ -199,12 +193,31 @@ partial class Form1
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(1044, 712);
             this.dataGridView1.TabIndex = 11;
@@ -213,11 +226,10 @@ partial class Form1
             // 
             // toolStrip1
             // 
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AboutButton,
-            this.ToExcelButton,
-            this.toolStripProgressBar1,
-            this.ProgressStatusLabel});
+            this.progressBar1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1323, 25);
@@ -232,51 +244,51 @@ partial class Form1
             this.AboutButton.Name = "AboutButton";
             this.AboutButton.Size = new System.Drawing.Size(88, 22);
             this.AboutButton.Text = "О Программе";
+            this.AboutButton.Click += new System.EventHandler(this.AboutButton_Click);
             // 
-            // ToExcelButton
+            // progressBar1
             // 
-            this.ToExcelButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.ToExcelButton.Image = ((System.Drawing.Image)(resources.GetObject("ToExcelButton.Image")));
-            this.ToExcelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToExcelButton.Name = "ToExcelButton";
-            this.ToExcelButton.Size = new System.Drawing.Size(48, 22);
-            this.ToExcelButton.Text = "В Excel";
-            // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Margin = new System.Windows.Forms.Padding(50, 2, 1, 1);
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(150, 22);
-            // 
-            // ProgressStatusLabel
-            // 
-            this.ProgressStatusLabel.Name = "ProgressStatusLabel";
-            this.ProgressStatusLabel.Size = new System.Drawing.Size(80, 22);
-            this.ProgressStatusLabel.Text = "ProgressLabel";
+            this.progressBar1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(50, 2, 1, 1);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(150, 22);
+            this.progressBar1.ToolTipText = "Прогресс поиска";
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.BreakButton);
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.progressBar1);
             this.panel2.Controls.Add(this.ClearButton);
             this.panel2.Controls.Add(this.StartButton);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1047, 25);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(276, 712);
             this.panel2.TabIndex = 13;
+            // 
+            // BreakButton
+            // 
+            this.BreakButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BreakButton.Enabled = false;
+            this.BreakButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BreakButton.Location = new System.Drawing.Point(140, 3);
+            this.BreakButton.Name = "BreakButton";
+            this.BreakButton.Size = new System.Drawing.Size(128, 42);
+            this.BreakButton.TabIndex = 15;
+            this.BreakButton.Text = "Отменить";
+            this.BreakButton.UseVisualStyleBackColor = true;
+            this.BreakButton.Click += new System.EventHandler(this.BreakButton_Click);
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.71318F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.28682F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Controls.Add(this.SntCheck, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.T2kCheck, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.UdtCheck, 1, 0);
@@ -338,14 +350,12 @@ partial class Form1
     private CheckBox AkpCheck;
     public TextBox textBox1;
     public DataGridView dataGridView1;
-    public ProgressBar progressBar1;
     public System.ComponentModel.BackgroundWorker backgroundWorker;
     private ToolStrip toolStrip1;
     private Panel panel2;
     private TableLayoutPanel tableLayoutPanel1;
     private Panel panel1;
     private ToolStripButton AboutButton;
-    private ToolStripButton ToExcelButton;
-    private ToolStripProgressBar toolStripProgressBar1;
-    private ToolStripLabel ProgressStatusLabel;
+    public ToolStripProgressBar progressBar1;
+    private Button BreakButton;
 }

@@ -29,7 +29,7 @@ namespace WorkParser2
             form1 = form;
         }
 
-        public void Start(List<Site> search_sites, List<string> searching_requests)
+        public void Start(DoWorkEventArgs e, List<Site> search_sites, List<string> searching_requests)
         {
             BindingList<ResponceModel> totalResponce = new();
             var percentage = form1.progressBar1.Maximum / searching_requests.Count;
@@ -37,10 +37,16 @@ namespace WorkParser2
             
             foreach (var request in searching_requests)
             {
+                if (form1.backgroundWorker.CancellationPending)
+                {
+                    e.Cancel = true;
+                    break;
+                }
+
                 percantageScore += percentage;
                 var res = parseController.Parse(search_sites, request);
                 //insert a ResponceModel with only requested articul
-                
+                res.Insert(0, new HeaderResponce(Site.SNT, request));
                 res.ForEach(x => totalResponce.Add(x));
                 form1.backgroundWorker.ReportProgress(percantageScore);
                 //foreach(var r in res)

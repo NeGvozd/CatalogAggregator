@@ -58,8 +58,14 @@
 
                 return table;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                //MessageBox.Show(
+                //    "Ошибка при парсинге таблицы на сайте " + site + ".",
+                //    "Ошибка сайта",
+                //    MessageBoxButtons.OK
+                //);
+
                 //throw;
                 return null;
             }           

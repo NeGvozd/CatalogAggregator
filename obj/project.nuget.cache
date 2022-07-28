@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "E85pC+kjBE1qGq6HtIwKctcdO8U94TRR9q5n/BLMGO66vgwbeh6yVSexdlDc8bMPuyvXaDgiC5ZRfmdFsrxwdQ==",
+  "dgSpecHash": "cnluPcbsi9vthofkjLcv4TVoErhhEVESo4HFlDVR7aRPqR1XB/6TkkDKRwK1I/lw/FV/vf/2XoVj31wOUzuttg==",
   "success": true,
   "projectFilePath": "C:\\Users\\intro\\Documents\\GitHub\\WorkParser2\\WorkParser2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\intro\\.nuget\\packages\\htmlagilitypack\\1.11.43\\htmlagilitypack.1.11.43.nupkg.sha512"
+    "C:\\Users\\intro\\.nuget\\packages\\htmlagilitypack\\1.11.43\\htmlagilitypack.1.11.43.nupkg.sha512",
+    "C:\\Users\\intro\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.17763.25\\microsoft.windows.sdk.net.ref.10.0.17763.25.nupkg.sha512"
   ],
   "logs": []
 }
