@@ -403,3 +403,12 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio
+obj/project.assets.json
+obj/project.nuget.cache
+obj/WorkParser2.csproj.nuget.dgspec.json
+Properties/PublishProfiles/FolderProfile.pubxml
+Properties/PublishProfiles/FolderProfile.pubxml.user
+.vscode/launch.json
+.vscode/tasks.json
+.vs/ProjectEvaluation/workparser2.metadata.v2
+.vs/ProjectEvaluation/workparser2.projects.v2
