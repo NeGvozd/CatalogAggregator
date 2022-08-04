@@ -48,6 +48,10 @@
             "HtmlAgilityPack": {
               "target": "Package",
               "version": "[1.11.43, )"
+            },
+            "Microsoft.Office.Interop.Excel": {
+              "target": "Package",
+              "version": "[15.0.4795.1001, )"
             }
           },
           "imports": [

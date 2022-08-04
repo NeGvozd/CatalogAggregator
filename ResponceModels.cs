@@ -8,13 +8,28 @@ namespace WorkParser2
 {
     internal class ResponceModel
     {
+        [System.ComponentModel.DisplayName("Позиция")]
         public string? Request { get; set; }
+        
+        [System.ComponentModel.DisplayName("Сайт")]
         public Site? Site { get; set; }
+        
+        [System.ComponentModel.DisplayName("Наименование")]
         public string? Name { get; set; }
+
+        [System.ComponentModel.DisplayName("Артикул")]
         public string? Article { get; set; }
+        
+        [System.ComponentModel.DisplayName("Цена")]
         public string? Cost { get; set; }
+
+        [System.ComponentModel.DisplayName("Производитель")]
         public string? Manufacturer { get; set; }
+
+        [System.ComponentModel.DisplayName("Наличие")]
         public string? Balance { get; set; }
+
+        [System.ComponentModel.DisplayName("Доставка")]
         public string? DeliveryTime { get; set; }
 
         public ResponceModel(Site site, string request)

@@ -45,6 +45,7 @@ partial class Form1
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.AboutButton = new System.Windows.Forms.ToolStripButton();
             this.progressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.ToExcelButton = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BreakButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -197,6 +198,7 @@ partial class Form1
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -229,7 +231,8 @@ partial class Form1
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AboutButton,
-            this.progressBar1});
+            this.progressBar1,
+            this.ToExcelButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1323, 25);
@@ -253,6 +256,17 @@ partial class Form1
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(150, 22);
             this.progressBar1.ToolTipText = "Прогресс поиска";
+            // 
+            // ToExcelButton
+            // 
+            this.ToExcelButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ToExcelButton.Image = ((System.Drawing.Image)(resources.GetObject("ToExcelButton.Image")));
+            this.ToExcelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToExcelButton.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+            this.ToExcelButton.Name = "ToExcelButton";
+            this.ToExcelButton.Size = new System.Drawing.Size(95, 22);
+            this.ToExcelButton.Text = "Экспорт в Excel";
+            this.ToExcelButton.Click += new System.EventHandler(this.ToExcelButton_Click);
             // 
             // panel2
             // 
@@ -359,4 +373,5 @@ partial class Form1
     private ToolStripButton AboutButton;
     public ToolStripProgressBar progressBar1;
     private Button BreakButton;
+    private ToolStripButton ToExcelButton;
 }

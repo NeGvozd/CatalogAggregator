@@ -5,11 +5,13 @@ namespace WorkParser2;
 public partial class Form1 : Form
 {
     InitialController controller;
+    ExcelExport excelExport;
 
     public Form1()
     {
         InitializeComponent();
         controller = new InitialController(this);
+        excelExport = new ExcelExport();
     }
 
     static string RemoveBadChars(string text)
@@ -131,6 +133,13 @@ public partial class Form1 : Form
     {
         AboutBox1 about = new AboutBox1();
         about.Show();
+    }
+
+    private void ToExcelButton_Click(object sender, EventArgs e)
+    {
+        dataGridView1.SelectAll();
+        excelExport.Export(dataGridView1.GetClipboardContent());
+        dataGridView1.ClearSelection();
     }
 }
 
