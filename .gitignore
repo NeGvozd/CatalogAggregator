@@ -412,3 +412,4 @@ Properties/PublishProfiles/FolderProfile.pubxml.user
 .vscode/tasks.json
 .vs/ProjectEvaluation/workparser2.metadata.v2
 .vs/ProjectEvaluation/workparser2.projects.v2
+*.v2
