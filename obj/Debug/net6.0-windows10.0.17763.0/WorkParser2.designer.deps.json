@@ -13,14 +13,6 @@
             "fileVersion": "1.11.43.0"
           }
         }
-      },
-      "Microsoft.Office.Interop.Excel/15.0.4795.1001": {
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Office.Interop.Excel.dll": {
-            "assemblyVersion": "15.0.0.0",
-            "fileVersion": "15.0.4795.1000"
-          }
-        }
       }
     }
   },
@@ -31,13 +23,6 @@
       "sha512": "sha512-C2gpt+S2tdFlQMOC3DK7rHZ8iv6EpDuIo4v0UTUSGX1F1bZ+NAQ3gp77HK8/JfCDszUm3Y2rHoyTp/TpO4KOIA==",
       "path": "htmlagilitypack/1.11.43",
       "hashPath": "htmlagilitypack.1.11.43.nupkg.sha512"
-    },
-    "Microsoft.Office.Interop.Excel/15.0.4795.1001": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-cuvqi/U5MYSM0gvR2l90q0m/urRgmg69EiwP5VWp1RcaJ0YT5G26Va5LaOZ3KJFc22FNihS5CUjeePUp2YpGQA==",
-      "path": "microsoft.office.interop.excel/15.0.4795.1001",
-      "hashPath": "microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512"
     }
   }
 }

@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "n3zBdP8ZYZl9WMq6zYZluJg0HFwIMKnpij4jQoqqOnvoksIKeAo4YSHOZZJ3xgxD9+PzlSK0Qd8PfkmQsZ5IlQ==",
+  "dgSpecHash": "jfZ6gjjOp7NlwtXBVM1xcL3DJmMAlKzXQJozfmDnbgd95WNZnktDT7vlJVuxo2SWdDj2DKQvGk7FNNVFGNo5kw==",
   "success": true,
   "projectFilePath": "C:\\Users\\intro\\Documents\\GitHub\\WorkParser2\\WorkParser2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\intro\\.nuget\\packages\\htmlagilitypack\\1.11.43\\htmlagilitypack.1.11.43.nupkg.sha512",
-    "C:\\Users\\intro\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1001\\microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512",
     "C:\\Users\\intro\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.17763.25\\microsoft.windows.sdk.net.ref.10.0.17763.25.nupkg.sha512"
   ],
   "logs": []

@@ -10,15 +10,6 @@
         "runtime": {
           "lib/netstandard2.0/HtmlAgilityPack.dll": {}
         }
-      },
-      "Microsoft.Office.Interop.Excel/15.0.4795.1001": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Office.Interop.Excel.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Office.Interop.Excel.dll": {}
-        }
       }
     }
   },
@@ -70,25 +61,11 @@
         "lib/uap10.0/HtmlAgilityPack.pdb",
         "lib/uap10.0/HtmlAgilityPack.pri"
       ]
-    },
-    "Microsoft.Office.Interop.Excel/15.0.4795.1001": {
-      "sha512": "cuvqi/U5MYSM0gvR2l90q0m/urRgmg69EiwP5VWp1RcaJ0YT5G26Va5LaOZ3KJFc22FNihS5CUjeePUp2YpGQA==",
-      "type": "package",
-      "path": "microsoft.office.interop.excel/15.0.4795.1001",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net20/Microsoft.Office.Interop.Excel.dll",
-        "lib/netstandard2.0/Microsoft.Office.Interop.Excel.dll",
-        "microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512",
-        "microsoft.office.interop.excel.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows10.0.17763": [
-      "HtmlAgilityPack >= 1.11.43",
-      "Microsoft.Office.Interop.Excel >= 15.0.4795.1001"
+      "HtmlAgilityPack >= 1.11.43"
     ]
   },
   "packageFolders": {
@@ -139,10 +116,6 @@
           "HtmlAgilityPack": {
             "target": "Package",
             "version": "[1.11.43, )"
-          },
-          "Microsoft.Office.Interop.Excel": {
-            "target": "Package",
-            "version": "[15.0.4795.1001, )"
           }
         },
         "imports": [

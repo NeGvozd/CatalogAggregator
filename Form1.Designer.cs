@@ -260,12 +260,14 @@ partial class Form1
             // ToExcelButton
             // 
             this.ToExcelButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ToExcelButton.Enabled = false;
             this.ToExcelButton.Image = ((System.Drawing.Image)(resources.GetObject("ToExcelButton.Image")));
             this.ToExcelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToExcelButton.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
             this.ToExcelButton.Name = "ToExcelButton";
             this.ToExcelButton.Size = new System.Drawing.Size(95, 22);
             this.ToExcelButton.Text = "Экспорт в Excel";
+            this.ToExcelButton.Visible = false;
             this.ToExcelButton.Click += new System.EventHandler(this.ToExcelButton_Click);
             // 
             // panel2

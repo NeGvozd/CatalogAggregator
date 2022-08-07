@@ -21,8 +21,3 @@ C:\Users\intro\Documents\GitHub\WorkParser2\obj\Debug\net6.0-windows10.0.17763.0
 C:\Users\intro\Documents\GitHub\WorkParser2\obj\Debug\net6.0-windows10.0.17763.0\ref\WorkParser2.dll
 C:\Users\intro\Documents\GitHub\WorkParser2\obj\Debug\net6.0-windows10.0.17763.0\WorkParser2.AboutBox1.resources
 C:\Users\intro\Documents\GitHub\WorkParser2\obj\Debug\net6.0-windows10.0.17763.0\WorkParser2.Properties.Resources.resources
-C:\Users\intro\Documents\GitHub\WorkParser2\bin\Debug\net6.0-windows10.0.17763.0\Microsoft.Office.Interop.Excel.dll
-C:\Users\intro\Documents\GitHub\WorkParser2\obj\Debug\net6.0-windows10.0.17763.0\Interop.Microsoft.Office.Core.dll
-C:\Users\intro\Documents\GitHub\WorkParser2\obj\Debug\net6.0-windows10.0.17763.0\WorkParser2.csproj.ResolveComReference.cache
-C:\Users\intro\Documents\GitHub\WorkParser2\bin\Debug\net6.0-windows10.0.17763.0\Microsoft.Vbe.Interop.dll
-C:\Users\intro\Documents\GitHub\WorkParser2\bin\Debug\net6.0-windows10.0.17763.0\OFFICE.DLL
