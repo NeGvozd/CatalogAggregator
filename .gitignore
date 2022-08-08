@@ -413,4 +413,4 @@ Properties/PublishProfiles/FolderProfile.pubxml.user
 .vs/ProjectEvaluation/workparser2.metadata.v2
 .vs/ProjectEvaluation/workparser2.projects.v2
 *.v2
-!bin/Publish/
+!.bin/deploy/
