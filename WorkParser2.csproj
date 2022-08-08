@@ -28,10 +28,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Remove="app.manifest" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="icon.ico" />
   </ItemGroup>
 
