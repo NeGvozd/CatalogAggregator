@@ -2,13 +2,10 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows10.0.17763.0</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.22000.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <SignAssembly>False</SignAssembly>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0.0</FileVersion>
     <Copyright>Copyright © Гвоздков Н.А.</Copyright>
     <Company>NeGvozd</Company>
     <Product>Каталожный агрегатор</Product>
@@ -17,11 +14,22 @@
     <Description>Приложение для автоматического поиска по каталогам сайтов SNT, UDT-Техника, T-2K, Рентаком, РЕКАМ-ГР и Akparts</Description>
     <RepositoryUrl>https://github.com/NeGvozd/CatalogAggregator</RepositoryUrl>
     <ApplicationIcon>icon.ico</ApplicationIcon>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/NeGvozd/CatalogAggregator</PackageProjectUrl>
-    <Version>2.0</Version>
-    <PublishSingleFile>true</PublishSingleFile>
+    <!-- <PublishSingleFile>true</PublishSingleFile> -->
+    <NeutralLanguage>ru</NeutralLanguage>
+    <SupportedOSPlatformVersion>8.0</SupportedOSPlatformVersion>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Deterministic>False</Deterministic>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Deterministic>False</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Remove="app.manifest" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="icon.ico" />
