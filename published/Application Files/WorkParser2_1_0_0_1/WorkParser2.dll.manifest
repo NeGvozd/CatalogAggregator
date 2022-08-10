@@ -87,7 +87,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>0XKhcwpZKk/ZBxgkeNYhaqnc1UgbwLUUt1XkiqQFKsE=</dsig:DigestValue>
+      <dsig:DigestValue>HFYxLz6ZbVlxqDvKVoZITG8MnFZ+t4h9HfaxPQY+63c=</dsig:DigestValue>
     </hash>
   </file>
   <file name="WorkParser2.exe" size="216576">
