@@ -8,14 +8,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Copyright>Copyright © Гвоздков Н.А.</Copyright>
     <Company>NeGvozd</Company>
-    <Product>Каталожный агрегатор</Product>
+    <Product>Прайс агрегатор</Product>
     <Authors>Nikita Gvozdkov</Authors>
-    <PackageId>Каталожный агрегатор</PackageId>
-    <Description>Приложение для автоматического поиска по каталогам сайтов SNT, UDT-Техника, T-2K, Рентаком, РЕКАМ-ГР и Akparts</Description>
+    <PackageId>Прайс агрегатор</PackageId>
+    <Description>Приложение для автоматического поиска по прайсам сайтов SNT, UDT-Техника, T-2K, Рентаком, РЕКАМ-ГР и Akparts</Description>
     <RepositoryUrl>https://github.com/NeGvozd/CatalogAggregator</RepositoryUrl>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <!-- <PublishSingleFile>true</PublishSingleFile> -->
     <NeutralLanguage>ru</NeutralLanguage>
+    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <PackageReleaseNotes>Повышена удобность использования, исправлена проблема с широкими строками</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -32,6 +35,13 @@
 
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.43" />
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="office">
+      <HintPath>..\..\..\..\..\..\Windows\assembly\GAC_MSIL\office\15.0.0.0__71e9bce111e9429c\OFFICE.DLL</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

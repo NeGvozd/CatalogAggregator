@@ -33,6 +33,7 @@ public partial class Form1 : Form
     private void ClearButton_Click(object sender, EventArgs e)
     {
         textBox1.Clear();
+        dataGridView1.DataSource = null;
         progressBar1.Value = progressBar1.Minimum;
     }
 
@@ -137,9 +138,9 @@ public partial class Form1 : Form
 
     private void ToExcelButton_Click(object sender, EventArgs e)
     {
-        //dataGridView1.SelectAll();
-        //excelExport.Export(dataGridView1.GetClipboardContent());
-        //dataGridView1.ClearSelection();
+        dataGridView1.SelectAll();
+        excelExport.Export(dataGridView1.GetClipboardContent());
+        dataGridView1.ClearSelection();
     }
 }
 
