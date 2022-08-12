@@ -34,7 +34,7 @@ namespace WorkParser2
                     AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
                     if (titleAttribute.Title != "")
                     {
-                        return "Каталожный агрегатор";
+                        return "Прайс Агрегатор";
                     }
                 }
                 return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
@@ -108,6 +108,11 @@ namespace WorkParser2
         }
 
         private void AboutBox1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelProductName_Click(object sender, EventArgs e)
         {
 
         }
