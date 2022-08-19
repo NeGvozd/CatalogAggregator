@@ -42,6 +42,7 @@ public partial class Form1 : Form
         if (RemoveBadChars(textBox1.Text).Length == 0)
         {
             backgroundWorker.CancelAsync();
+            return;
         }
 
         var requested_sites = new List<Site>();
@@ -113,7 +114,10 @@ public partial class Form1 : Form
 
     private void textBox1_TextChanged(object sender, EventArgs e)
     {
-
+        if (textBox1.Text.Split('\n').Length > 20)
+            textBox1.ScrollBars = ScrollBars.Vertical;
+        else
+            textBox1.ScrollBars = ScrollBars.None;
     }
 
     private void progressBar1_Click(object sender, EventArgs e)
