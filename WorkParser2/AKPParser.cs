@@ -41,7 +41,16 @@ namespace WorkParser2
             catch (ArgumentNullException ex)
             {
                 return null;
-            }            
+            }
+            catch (NullReferenceException)
+            {
+                string message = string.Format(
+                    "Error with parse {0}. Probably, the site has changed the structure of the page.",
+                    request
+                );
+                MessageBox.Show(message, "Akp Error");
+                return null;
+            }
         }
     }
 }

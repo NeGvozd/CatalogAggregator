@@ -12,13 +12,15 @@ namespace WorkParser2
 
         public ParseController()
         {
-            sites = new Dictionary<Site, AbstractSiteParser>();
-            sites.Add(Site.SNT, new SNTParser(Site.SNT, "https://snt-k.ru/catalog/"));
-            sites.Add(Site.UDT, new UDTParser(Site.UDT, "https://www.udt-technika.ru/search/"));
-            sites.Add(Site.T2K, new T2KParser(Site.T2K, "https://t-2k.ru/search?q={0}"));
-            sites.Add(Site.REN, new RENTAParser(Site.REN, "https://rentakom-parts.ru/search/?q={0}"));
-            sites.Add(Site.REC, new RECAParser(Site.REC, "https://recamgr.ru/products/?search={0}"));
-            sites.Add(Site.AKP, new AKPParser(Site.AKP, "https://akpart.ru/catalog/?q={0}"));
+            sites = new Dictionary<Site, AbstractSiteParser>
+            {
+                { Site.SNT, new SNTParser(Site.SNT, "https://snt-k.ru/catalog/") },
+                { Site.UDT, new UDTParser(Site.UDT, "https://www.udt-technika.ru/search/") },
+                { Site.T2K, new T2KParser(Site.T2K, "https://t-2k.ru/search?q={0}") },
+                { Site.REN, new RENTAParser(Site.REN, "https://rentakom-parts.ru/search/?q={0}") },
+                { Site.REC, new RECAParser(Site.REC, "https://recamgr.ru/products/?search={0}") },
+                { Site.AKP, new AKPParser(Site.AKP, "https://akpart.ru/catalog/?q={0}") }
+            };
         }
 
         public List<ResponceModel> Parse(List<Site> search_sites, string request)
