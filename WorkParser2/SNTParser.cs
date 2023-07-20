@@ -41,10 +41,16 @@ namespace WorkParser2
             
             for (int i = 0; i < _base.Count; i++)
             {
-                var value = _base[i];
                 _base[i].RemoveAll(x => x == null || x == "");
-                if (i < _base.Count && (_base[i].Count < 4 || _base[i][4] == "ОЖИДАЕТСЯ"))
+                if (_base[i].Count <= 4 && i < _base.Count)
+                {
                     _base.RemoveAt(i);
+                    continue;
+                }
+                if (i < _base.Count && _base[i][4] == "ОЖИДАЕТСЯ")
+                {
+                    _base.RemoveAt(i);
+                }
             }
         }
     }
