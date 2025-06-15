@@ -8,31 +8,49 @@ namespace WorkParser2
 {
     internal class RENTAParser : AbstractSiteParser
     {
-        private string _table_class = "table catalogSection_table";
-
         public RENTAParser(Site s, string url, double? dc = null) : base(s, url, dc) { }
 
         public override async Task<ResponceModel[]?> ParseAsync(string request)
         {
-            var suitable = ParseTableToList(
-                await GetHtmlAsync(string.Format(request_url, request)),
-                _table_class
-            );
+            var node = "//*[@itemtype='http://schema.org/Product']";
 
-            if (suitable == null) return null;
-            
-            suitable.RemoveAll(x => x[5].Contains("заказ"));
+            string nameNode = ".//*[contains(@class, 'grid-name')]/a",
+                    balanceNode = ".//*[@class='grid-qty']/div/span",
+                    articleNode = ".//*[contains(@class, 'grid-art')]/span",
+                    manufacturerNode = ".//*[@itemprop='brand']",
+                    costNode = ".//*[@class='grid-price']/span";
 
-            var responces = suitable.Select(s => new ResponceModel(site, request)
+            var html = await GetHtmlAsync(string.Format(request_url, request));
+            HtmlAgilityPack.HtmlDocument doc = new();
+            doc.LoadHtml(html);
+
+            try
             {
-                Name = s[2],
-                Article = s[1].Split(' ', 2)[0],
-                Cost = s[4].Replace("&nbsp;", "").Split('₽')[0],
-                Manufacturer = s[0],
-                Balance = s[5].Replace("&nbsp;", " "),
-            }).ToArray();
+                var nodes = doc.DocumentNode.SelectNodes(node)
+                .Select(div => new ResponceModel(site, request)
+                {
+                    Name = div.SelectSingleNode(nameNode).InnerText,
+                    Balance = div.SelectSingleNode(balanceNode).InnerText,
+                    Article = div.SelectSingleNode(articleNode).InnerText,
+                    Manufacturer = div.SelectSingleNode(manufacturerNode).InnerText,
+                    Cost = div.SelectSingleNode(costNode).InnerText.Replace("&nbsp;", "").Replace("&#8381;", "₽"),
+                }).ToArray();
 
-            return responces;
+                return nodes;
+            }
+            catch (ArgumentNullException ex)
+            {
+                return null;
+            }
+            catch (NullReferenceException)
+            {
+                string message = string.Format(
+                    "Error with parse {0}. Probably, the site has changed the structure of the page.",
+                    request
+                );
+                MessageBox.Show(message, "Modern-parts Error");
+                return null;
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace WorkParser2
@@ -24,11 +25,23 @@ namespace WorkParser2
                 Article = s[1],
                 DeliveryTime = s[3],
                 Balance = s[4],
-                Cost = s[6],
+                Cost = SelectPrice(s[6]),
                 Manufacturer = s[7],
             }).ToArray();
             
             return responces;
+        }
+
+        private string? SelectPrice(string? price)
+        {
+            try
+            {
+                return Regex.Match(price, @"(\d+(?: ?\d)*)\s+руб\.?").ToString();
+            }
+            catch
+            {
+                return price;
+            }
         }
     }
 }

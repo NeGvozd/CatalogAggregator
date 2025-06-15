@@ -12,9 +12,9 @@ namespace WorkParser2
         SNT=1,
         UDT,
         T2K,
-        REN,
-        REC,
-        AKP
+        ModParts,
+        Recamgr,
+        AKParts
     }
 
 

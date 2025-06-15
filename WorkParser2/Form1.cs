@@ -48,7 +48,7 @@ public partial class Form1 : Form
         var requested_sites = new List<Site>();
         var requests = textBox1.Text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
         var check_boxes = this.AllControls<CheckBox>().Where(control => control.Checked).ToList();
-        
+
         check_boxes.Reverse();
         foreach (var c in check_boxes)
         {

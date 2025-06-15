@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkParser2", "WorkParser2.csproj", "{00E6767C-8355-496B-929C-4232449D9ECB}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupInstaller", "..\SetupInstaller\SetupInstaller.vdproj", "{A927ACB3-95D9-F2BC-05DA-F6ACEDA0432C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{00E6767C-8355-496B-929C-4232449D9ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00E6767C-8355-496B-929C-4232449D9ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00E6767C-8355-496B-929C-4232449D9ECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A927ACB3-95D9-F2BC-05DA-F6ACEDA0432C}.Debug|Any CPU.ActiveCfg = Debug
+		{A927ACB3-95D9-F2BC-05DA-F6ACEDA0432C}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
